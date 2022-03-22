@@ -345,3 +345,14 @@ for (i in 1:30619){
 rm(A,B,i)
 
 write.csv(WHOLE,"D:/Biostatistics Group Project/Final_Dataset.csv",row.names = FALSE,col.names = FALSE)
+
+
+# Update the dataset by changing the variable Income
+
+Income=rep(0,length(Demo_0304[,1])+length(Demo_0506[,1])+length(Demo_0708[,1]))
+Income[1:10122]=Demo_0304$INDFMPIR
+Income[10123:20470]=Demo_0506$INDFMPIR
+Income[20471:30619]=Demo_0708$INDFMPIR
+Final_data$Income=Income*100
+write.csv(Final_data,"C:/Users/lenovo/Desktop/BIST 5625/Group project/Final_Dataset2.csv",
+          row.names=Final_data$ID)
